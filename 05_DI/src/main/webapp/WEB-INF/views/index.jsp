@@ -11,7 +11,7 @@
 <body>
 
 <div>
-  <a href="${contextPath}/board/list.do">게시글 목록</a>
+  
 </div>
 
 </body>
