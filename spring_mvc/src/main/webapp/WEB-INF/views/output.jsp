@@ -9,7 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-  <h3>output.jsp</h3>
+ <h3>output.jsp</h3>
+  ${result}
+  
 </body>
 </html>

@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.gdu.prj02.dto.BoardDto;
 
 public interface BoardService {
-  public void add1(HttpServletRequest reuqest);
-  public void add2(int boardNo, String title);
-  public void add3(BoardDto boardDto);
+  public int add1(HttpServletRequest request);
+  public int add2(int boardNo, String title);
+  public int add3(BoardDto boardDto);
 }

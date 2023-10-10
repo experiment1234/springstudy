@@ -2,18 +2,26 @@ package com.gdu.prj02.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gdu.prj02.dto.BoardDto;
 import com.gdu.prj02.service.BoardService;
 import com.gdu.prj02.service.BoardServiceImpl;
 
+import lombok.AllArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor  // private final BoardService boardService에 Bean이 반드시 전달됨을 보증하는 Annotation입니다.
 @Controller
 public class BoardController {
+
   /*
   @RequestMapping(value="/add.do", method=RequestMethod.GET)
   public String add(HttpServletRequest request) {  // 요청 파라미터는 메소드 파라미터로 받습니다.

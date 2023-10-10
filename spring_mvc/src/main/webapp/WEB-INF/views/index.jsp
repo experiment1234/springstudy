@@ -10,21 +10,26 @@
 </head>
 <body>
 
-  <div><a href="${contextPath}/add.do?boardNo=1&title=공지사항">링크</a></div>
-  <form action="${contextPath}/add.do">
+   <div><a href="${contextPath}/add1.do?boardNo=1&title=공지사항">링크</a></div>
+  
+  <hr>
+  
+  <form action="${contextPath}/add2.do">
     <div><input type="text" name="boardNo"></div>
     <div><input type="text" name="title"></div>
-    <div><button type="submit">전송</div>
-    </form>
+    <div><button type="submit">전송</button></div>
+  </form>
+  
+  <hr>
   
   <div>
-    <button type="button" id="btn">버튼</button></div>
+    <button type="button" id="btn">버튼</button>
+  </div>
   <script>
-  document.getElementById('btn').onclick = function(){
-	   location.href='${contextPath}/add.do?boardNo=1&title=공지사항';
-	 
-  }
- 
+    document.getElementById('btn').onclick = function(){    
+      location.href='${contextPath}/add3.do?boardNo=1&title=공지사항';
+    }
   </script>
+  
 </body>
 </html>
