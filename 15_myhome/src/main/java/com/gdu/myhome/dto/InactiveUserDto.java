@@ -24,7 +24,7 @@ public class InactiveUserDto {
   private String detailAddress;
   private int agree;
   private int state;
-  private Date pwModifiedAt ;
-  private Date joinedAt ;
+  private Date pwModifiedAt;
+  private Date joinedAt;
   private Date inactivedAt;
 }

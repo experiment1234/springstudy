@@ -29,24 +29,44 @@ public class BbsServiceImpl implements BbsService {
     String strPage = opt.orElse("1");
     int page = Integer.parseInt(strPage);
     
-    
-    
-    int total= bbsMapper.getBbsCount();
+    int total = bbsMapper.getBbsCount();
     
     int display = 10;
     
     myPageUtils.setPaging(page, total, display);
     
     Map<String, Object> map = Map.of("begin", myPageUtils.getBegin()
-                                    , "end", myPageUtils.getEnd());
+                                   , "end", myPageUtils.getEnd());
     
     List<BbsDto> bbsList = bbsMapper.getBbsList(map);
     
-    model.addAttribute("bbsList",bbsList);
-    
+    model.addAttribute("bbsList", bbsList);
     
     String contextPath = request.getContextPath();
-    model.addAttribute("paging",myPageUtils.getMvcPaging(contextPath + "/bbs/list.do"));
-    model.addAttribute("total",total);
+    model.addAttribute("paging", myPageUtils.getMvcPaging(contextPath + "/bbs/list.do"));
+    model.addAttribute("total", total);
+    
   }
+  
+  @Override
+  public BbsDto getBbs(int bbsNo) {
+    BbsDto bbs = bbsMapper.getBbs(bbsNo);
+    return bbs;
+  }
+  
+  @Override
+  public int addBbs(BbsDto bbs) {
+    return bbsMapper.insertBbs(bbs);    
+  }
+  
+  @Override
+  public int modifyBbs(BbsDto bbs) {
+    return bbsMapper.updateBbs(bbs);    
+  }
+  
+  @Override
+  public int removeBbs(int bbsNo) {
+    return bbsMapper.deleteBbs(bbsNo);
+  }
+  
 }

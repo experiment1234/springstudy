@@ -8,13 +8,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
 <body>
-<div>
-<h3>Hello World</h3>
-<a href="${contextPath}/bbs/list.do">게시판</a>
-</div>
 
-
+  <h1>Hello World</h1>
+  <a href="${contextPath}/list.do">게시판</a>
 
 </body>
 </html>
