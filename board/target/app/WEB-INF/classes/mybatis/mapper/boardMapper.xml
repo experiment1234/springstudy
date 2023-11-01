@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--
+  중요. mapper namespace가 달라집니다.
+  board.xml의 쿼리문을 호출할 BoardMapper.java를 namespace로 작성합니다.
+-->
+
+<mapper namespace="com.goodee.ex10.mapper.BoardMapper">
+
+  <!-- 목록 -->
+  <select id="selectAllBoards" resultType="BoardDTO">
+    SELECT BOARD_NO, WRITER, TITLE, CONTENT, CREATED_DATE, MODIFIED_DATE
+      FROM BOARD
+     ORDER BY BOARD_NO DESC
+  </select>
+  
+  <!-- 등록 -->
+  <insert id="insertBoard" parameterType="BoardDTO">
+    INSERT INTO BOARD
+      (BOARD_NO, WRITER, TITLE, CONTENT, CREATED_DATE, MODIFIED_DATE)
+    VALUES
+      (BOARD_SEQ.NEXTVAL, #{writer}, #{title}, #{content}, TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'), TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'))
+  </insert>
+  
+  <!-- 상세보기 -->
+  <select id="selectBoardByNo" parameterType="Long" resultType="BoardDTO">
+    SELECT BOARD_NO, WRITER, TITLE, CONTENT, CREATED_DATE, MODIFIED_DATE
+      FROM BOARD
+     WHERE BOARD_NO = #{boardNo}
+  </select>
+  
+  <!-- 수정 -->
+  <update id="updateBoard" parameterType="BoardDTO">
+    UPDATE BOARD
+       SET TITLE = #{title}
+         , CONTENT = #{content}
+         , MODIFIED_DATE = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
+     WHERE BOARD_NO = #{boardNo}
+  </update>
+  
+  <!-- 삭제 -->
+  <delete id="deleteBoard" parameterType="Long">
+    DELETE
+      FROM BOARD
+     WHERE BOARD_NO = #{boardNo}
+  </delete>
+  
+  <!-- 다중 삭제 -->
+  <!-- DELETE FROM BOARD WHERE BOARD_NO IN(1,4) -->
+  <delete id="deleteBoards">
+    DELETE
+      FROM BOARD
+    <where> 
+       <foreach collection="list" item="boardNo" open="BOARD_NO IN(" separator="," close=")">
+        #{boardNo}
+      </foreach>
+    </where>
+  </delete>
+
+</mapper>

@@ -1,0 +1,8 @@
+com\goodee\app\service\BoardServiceImpl.class
+com\goodee\app\config\AppConfig.class
+com\goodee\app\service\BoardService.class
+com\goodee\app\controller\BoardController.class
+com\goodee\app\dao\BoardMapper.class
+com\goodee\app\dto\BoardDto$BoardDtoBuilder.class
+com\goodee\app\dto\BoardDto.class
+com\goodee\app\logback\MyLogbackLayout.class

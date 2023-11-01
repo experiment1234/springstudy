@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration 
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd" >
+
+<configuration>
+
+  <!-- BOARD_NO 칼럼을 boardNo 필드로 매칭 -->
+  <settings>
+    <setting name="mapUnderscoreToCamelCase" value="true"/>
+  </settings>
+  
+  <!-- com.goodee.ex10.domain.BoardDTO를 BoardDTO로 인식 -->
+  <typeAliases>
+    <typeAlias type="com.goodee.ex10.domain.BoardDTO" alias="BoardDTO" />
+  </typeAliases>
+  
+</configuration>
